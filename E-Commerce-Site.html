@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>E-commerce Site</title>
+<style>
+    body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: rgb(238,174,202);
+background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+header {
+    background: rgb(30,73,193);
+    background: linear-gradient(90deg, rgba(30,73,193,1) 0%, rgba(31,121,177,1) 51%, rgba(22,153,142,1) 100%);
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+section {
+  width: 45%;
+}
+
+.product {
+   
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 2px 1px 9px rgb(20, 20, 20);
+
+transition: 0.4s all linear 0s;}
+ .product:hover{
+    transition: 0.4s;
+    scale: 1.04;
+ }
+
+#a1{background-image: url(julab.jpg);
+
+}
+#a2{
+    background-image : url(walking-with-futuristic-light-shoes-street-rain-ai-generated_268835-8274.webp);
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+    transition: all 1.4s linear 0s;
+  background-color: #072d09;
+  scale: 1.04;}
+
+
+
+#cart {
+    background-image: url(neoncart.jpg);
+    color: white;
+   background-color: #d6b10b; 
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 1px 2px 9px rgb(11, 11, 11);
+}
+
+#cart-items {
+  padding: 0;
+  list-style-type: none;
+}
+
+#cart-items li {
+  margin-bottom: 5px;
+}
+
+#cart-items li button {
+  background-color: #d32f2f;
+}
+
+#cart-items li button:hover {
+  background-color: #d32f2f;
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>E-commerce Site</h1>
+</header>
+<main>
+  <section id="products">
+    <h2>Products</h2>
+    <div class="product" data-id="1" id="a1">
+    
+      <h3>Product 1</h3>
+      <p>$10</p>
+      <button onclick="addToCart(1)">Add to Cart</button>
+    </div>
+    <div class="product" data-id="2" id="a2">
+      <h3>Product 2</h3>
+      <p>$20</p>
+      <button onclick="addToCart(2)">Add to Cart</button>
+    </div>
+    <!-- More products can be added here -->
+  </section>
+  <section id="cart">
+    <h2>Cart</h2>
+    <ul id="cart-items"></ul>
+    <p>Total: $<span id="cart-total">0</span></p>
+  </section>
+</main>
+<script>
+    let cart = [];
+
+function addToCart(productId) {
+  const product = document.querySelector(`[data-id="${productId}"]`);
+  const productName = product.querySelector("h3").textContent;
+  const productPrice = parseFloat(product.querySelector("p").textContent.replace("$", ""));
+  
+  cart.push({ id: productId, name: productName, price: productPrice });
+  
+  updateCart();
+}
+
+function updateCart() {
+  const cartItems = document.getElementById("cart-items");
+  const cartTotal = document.getElementById("cart-total");
+  
+  cartItems.innerHTML = "";
+  
+  let total = 0;
+  
+  cart.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = `${item.name} - $${item.price}`;
+    
+    const removeButton = document.createElement("button");
+    removeButton.textContent = "Remove";
+    removeButton.onclick = () => removeFromCart(item.id);
+    
+    li.appendChild(removeButton);
+    cartItems.appendChild(li);
+    
+    total += item.price;
+  });
+  
+  cartTotal.textContent = total.toFixed(2);
+}
+
+function removeFromCart(productId) {
+  cart = cart.filter(item => item.id !== productId);
+  updateCart();
+}
+</script>
+</body>
+</html>
