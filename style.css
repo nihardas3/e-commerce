@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  }
+  
+  header {
+      background: rgb(30,73,193);
+      background: linear-gradient(90deg, rgba(30,73,193,1) 0%, rgba(31,121,177,1) 51%, rgba(22,153,142,1) 100%);
+    color: white;
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  main {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  section {
+    width: 45%;
+  }
+  
+  .product {
+     
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 2px 1px 9px rgb(20, 20, 20);
+  
+  transition: 0.4s all linear 0s;}
+   .product:hover{
+      transition: 0.4s;
+      scale: 1.04;
+   }
+  
+  #a1{background-image: url(julab.jpg);
+  
+  }
+  #a2{
+      background-image : url(walking-with-futuristic-light-shoes-street-rain-ai-generated_268835-8274.webp);
+  }
+  
+  button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+      transition: all 1.4s linear 0s;
+    background-color: #072d09;
+    scale: 1.04;}
+  
+  
+  
+  #cart {
+      background-image: url(neoncart.jpg);
+      color: white;
+     background-color: #d6b10b; 
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 1px 2px 9px rgb(11, 11, 11);
+  }
+  
+  #cart-items {
+    padding: 0;
+    list-style-type: none;
+  }
+  
+  #cart-items li {
+    margin-bottom: 5px;
+  }
+  
+  #cart-items li button {
+    background-color: #d32f2f;
+  }
+  
+  #cart-items li button:hover {
+    background-color: #d32f2f;
+  }
